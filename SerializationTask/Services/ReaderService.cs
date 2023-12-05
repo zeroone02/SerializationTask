@@ -1,5 +1,4 @@
-﻿using SerializationTask.Common;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace SerializationTask;
 public class ReaderService
@@ -15,7 +14,6 @@ public class ReaderService
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             };
-            options.Converters.Add(new PosixDateTimeJsonConverter());
             persons = JsonSerializer.Deserialize<Person[]>(json, options);
         }
         else

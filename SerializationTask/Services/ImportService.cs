@@ -1,5 +1,4 @@
-﻿using SerializationTask.Common;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace SerializationTask;
 public class ImportService
@@ -10,7 +9,6 @@ public class ImportService
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };
-        options.Converters.Add(new PosixDateTimeJsonConverter());
         var json = JsonSerializer.Serialize(persons, options);
         File.WriteAllText(filePath, json);
     }
